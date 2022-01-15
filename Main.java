@@ -1,26 +1,36 @@
 package application;
-	
+
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 
-
-public class Main extends Application {
-	@Override
-	public void start(Stage primaryStage) {
-		try {
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+public class Controller extends Application{
+	
+	@FXML
+	private Button button;
+	
+	@FXML
+	private ImageView imgview;
+	
+	public void initialize() {
+		Image image = new Image(getClass().getResourceAsStream("/images/smileyface.png")); 
+		imgview.setImage(image);
+		System.out.println("run");
 	}
 	
-	public static void main(String[] args) {
-		launch(args);
+	public void click (ActionEvent e) throws InterruptedException {
+		Image image = new Image(getClass().getResourceAsStream("/images/shockface.png"));
+		imgview.setImage(image);
+		System.out.println("set");
 	}
+
+	@Override
+	public void start(Stage arg0) throws Exception {
+		
+	}
+	
 }
